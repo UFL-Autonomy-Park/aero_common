@@ -1,14 +1,18 @@
 import os
+import subprocess
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
-from launch.actions import IncludeLaunchDescription
+from launch.actions import IncludeLaunchDescription, ExecuteProcess
 from launch.launch_description_sources import AnyLaunchDescriptionSource
 
 def generate_launch_description():
     # Get MAVROS XML launch file (even if it lacks .xml extension)
     mavros_dir = get_package_share_directory('mavros')
     mavros_launch = os.path.join(mavros_dir, 'launch', 'node.launch')
+    
+    # Define the correct path to QGroundControl
+    qgc_path = '/home/autonomypark/QGroundControl.AppImage'
     
     return LaunchDescription([
         # Include MAVROS launch file
@@ -26,6 +30,12 @@ def generate_launch_description():
                 'respawn_mavros': 'false',
                 'namespace': 'astro_sim'
             }.items()
+        ),
+        
+        # QGroundControl Launch - use bash to execute it as a background process
+        ExecuteProcess(
+            cmd=['bash', '-c', f"cd /home/autonomypark && ./QGroundControl.AppImage"],
+            output='screen'
         ),
         
         # Original nodes from minimal_startup.launch.py
