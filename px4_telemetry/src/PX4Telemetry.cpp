@@ -150,13 +150,7 @@ void PX4Telemetry::joy_callback(const sensor_msgs::msg::Joy::SharedPtr joy_msg) 
                 //Arm
                 send_arming_request(true);
             } else {
-                //Check if vehicle in air
-                if (landed_state_ == on_ground) {
-                    //Send takeoff request
-                    send_tol_request(true);
-                } else {
-                    RCLCPP_ERROR(this->get_logger(), "Takeoff request ignored: vehicle not in landed state.");
-                }
+                send_tol_request(true);
             }
         }
 

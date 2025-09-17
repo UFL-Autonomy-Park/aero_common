@@ -81,6 +81,9 @@ void PX4Teleop::joy_callback(const sensor_msgs::msg::Joy::SharedPtr joy_msg) {
     setpoint_vel_.twist.linear.y = -sin_origin_*safe_cmd_vel.linear.x + cos_origin_*safe_cmd_vel.linear.y;
     setpoint_vel_.twist.linear.z = safe_cmd_vel.linear.z;
     setpoint_vel_.twist.angular.z = safe_cmd_vel.angular.z;
+
+    // RCLCPP_WARN(this->get_logger(), "Orig Twist: (%.4f, %.4f, %.4f)", unsafe_cmd_vel.linear.x, unsafe_cmd_vel.linear.y, unsafe_cmd_vel.linear.z);
+    // RCLCPP_WARN(this->get_logger(), "Safe Twist: (%.4f, %.4f, %.4f)", safe_cmd_vel.linear.x, safe_cmd_vel.linear.y, safe_cmd_vel.linear.z);
 }
 
 void PX4Teleop::pose_callback(const geometry_msgs::msg::PoseStamped::SharedPtr pose_msg) {
