@@ -1,0 +1,12 @@
+[submodule "autonomy_park_viz"]
+	path = autonomy_park_viz
+	url = git@github.com:UFL-Autonomy-Park/autonomy_park_viz.git
+[submodule "px4_safety_lib"]
+	path = px4_safety_lib
+	url = git@github.com:UFL-Autonomy-Park/px4_safety_lib.git
+[submodule "px4_telemetry"]
+	path = px4_telemetry
+	url = git@github.com:UFL-Autonomy-Park/px4_telemetry.git
+[submodule "px4_teleop"]
+	path = px4_teleop
+	url = git@github.com:UFL-Autonomy-Park/px4_teleop.git
