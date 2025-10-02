@@ -15,28 +15,6 @@ def generate_launch_description():
     qgc_path = '/home/autonomypark/QGroundControl.AppImage'
     
     return LaunchDescription([
-        # Include MAVROS launch file
-        IncludeLaunchDescription(
-            AnyLaunchDescriptionSource(mavros_launch),
-            launch_arguments={
-                'pluginlists_yaml': os.path.join(mavros_dir, 'launch', 'px4_pluginlists.yaml'),
-                'config_yaml': os.path.join(mavros_dir, 'launch', 'px4_config.yaml'),
-                'fcu_url': 'udp://:14540@127.0.0.1:14557',
-                'gcs_url': '',
-                'tgt_system': '1',
-                'tgt_component': '1',
-                'log_output': 'screen',
-                'fcu_protocol': 'v2.0',
-                'respawn_mavros': 'false',
-                'namespace': 'astro_sim'
-            }.items()
-        ),
-        
-        # QGroundControl Launch - use bash to execute it as a background process
-        ExecuteProcess(
-            cmd=['bash', '-c', f"cd /home/autonomypark && ./QGroundControl.AppImage"],
-            output='screen'
-        ),
         
         # Original nodes from minimal_startup.launch.py
         Node(
@@ -59,7 +37,7 @@ def generate_launch_description():
             package='px4_telemetry',
             executable='px4_telemetry_node',
             name='px4_telemetry_node',
-            namespace='astro_sim',
+            namespace='astro_sim_3',
             parameters=[os.path.join(get_package_share_directory('px4_telemetry'), 'param', 'park_coordinates.yaml'),
                         os.path.join(get_package_share_directory('px4_telemetry'), 'param', 'button_config.yaml'),
             ],
@@ -69,7 +47,7 @@ def generate_launch_description():
             package='joy',
             executable='joy_node',
             name='joy_node',
-            namespace='astro_sim',
+            namespace='astro_sim_3',
             parameters=[os.path.join(get_package_share_directory('px4_telemetry'), 'param', 'joy_config.yaml')],
             output='screen'
         )

@@ -1,0 +1,32 @@
+<launch>
+    <!-- px4_1 -->
+    <group>
+        <arg name="id" default="1" />
+        <arg name="fcu_url" default="udp://:14541@127.0.0.1:14581" />
+        <include file="$(find-pkg-share mavros)/launch/px4.launch">
+            <arg name="tgt_system" value="$(eval '1 + int(\'$(var id)\') ')" />
+            <arg name="namespace" value="astro_sim" />
+        </include>
+    </group>
+
+    <!--px4_2 -->
+    <group>
+        <arg name="id" default="2" />
+        <arg name="fcu_url" default="udp://:14542@127.0.0.1:14581" />
+        <include file="$(find-pkg-share mavros)/launch/px4.launch">
+            <arg name="tgt_system" value="$(eval '1 + int(\'$(var id)\') ')" />
+            <arg name="namespace" value="astro_sim_2" />
+        </include>
+    </group>
+
+    <!--px4_3 -->
+    <group>
+        <arg name="id" default="3" />
+        <arg name="fcu_url" default="udp://:14543@127.0.0.1:14581" />
+        <include file="$(find-pkg-share mavros)/launch/px4.launch">
+            <arg name="tgt_system" value="$(eval '1 + int(\'$(var id)\') ')" />
+            <arg name="namespace" value="astro_sim_3" />
+        </include>
+    </group>
+
+</launch>
