@@ -1,5 +1,16 @@
-# Aero Common
-Common package containing all required ROS2 packages to run a single agent at the autonomy park.
+<h1 align="center"> Autonomy Sim
+</h1>
+<div align="center">
+   
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+![ROS](https://img.shields.io/badge/ros-%230A0FF9.svg?style=for-the-badge&logo=ros&logoColor=white)
+![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+
+A ROS2 metapackage providing the common infrastructure needed to run both single and multi-agent autonomousb UAV flight through PX4 and MAVROS.
+It resembles a flight stack, with safety, telemetry logging, teleoperation, and visualization. All packages are included as git submodules and will need to be pulled in to run the full stack.
+
+<img alt="Trajectory Tracking Gif" src="docs/trajectory_tracking.gif"> </img>
+</div>
 
 ## Packages
 
