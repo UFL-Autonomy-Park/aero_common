@@ -13,3 +13,6 @@
 [submodule "minimal_startup_air"]
 	path = minimal_startup_air
 	url = git@github.com:UFL-Autonomy-Park/minimal_startup_air.git
+[submodule "swarm_interfaces"]
+	path = swarm_interfaces
+	url = git@github.com:Jordan-Insinger/swarm_interfaces.git
